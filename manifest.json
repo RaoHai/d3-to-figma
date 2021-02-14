@@ -1,6 +1,6 @@
 {
-  "name": "awesome-chart",
-  "id": "935111727425641179",
+  "name": "d3-to-figma",
+  "id": "942776872118824868",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html"
