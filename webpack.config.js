@@ -1,4 +1,7 @@
+'use strict';
+
 const webpack = require('webpack');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 
@@ -13,6 +16,12 @@ module.exports = (env, argv) => ({
     code: './index.ts',
   },
 
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+  },
+  
   module: {
     rules: [
       {
