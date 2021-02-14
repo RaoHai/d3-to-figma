@@ -8,7 +8,7 @@
     "start": "webpack serve",
     "build": "webpack --mode=production",
     "test": "node scripts/test.js",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint ./**/*.{js,ts,tsx}",
     "ci": "npm run build --if-present && npm run test"
   },
   "files": [
@@ -27,6 +27,7 @@
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
