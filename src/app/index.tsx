@@ -1,5 +1,6 @@
 import React from 'react';
+import './style/index.scss';
 
 export default function App() {
-    return <div> hello world </div>;
+    return <div className="md:container mx:max-auto"> hello world </div>;
 }
