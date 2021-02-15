@@ -1,0 +1,64 @@
+:root {
+    --syntax_normal:#1b1e23;
+    --syntax_comment:#828282;
+    --syntax_diff:#24292e;
+    --syntax_diff_bg:#fff;
+    --syntax_number:#20a5ba;
+    --syntax_keyword:#c30771;
+    --syntax_atom:#10a778;
+    --syntax_string:#008ec4;
+    --syntax_error:#ffbedc;
+    --syntax_unknown_variable:#838383;
+    --syntax_known_variable:#005f87;
+    --syntax_matchbracket:#20bbfc;
+    --syntax_key:#6636b4;
+    --selection:#d7d4f0;
+    --hr:rgba(0,0,0,0.05);
+}
+
+.CodeMirror {
+    height: auto;
+    @apply font-mono;
+    @apply bg-gray-50;
+    @apply text-sm;
+    @apply px-3;
+    @apply py-2;
+    @apply my-4;
+}
+
+.cm-s-d3-2-figma {
+    color: var(--syntax_known_variable)
+}
+
+.cm-s-d3-2-figma span.cm-comment {
+    color: var(--syntax_comment)
+}
+
+.cm-s-d3-2-figma span.cm-number,.cm-s-d3-2-figma span.cm-regexp {
+    color: var(--syntax_number)
+}
+
+.cm-s-d3-2-figma span.cm-keyword {
+    color: var(--syntax_keyword)
+}
+
+.cm-s-d3-2-figma span.cm-atom {
+    color: var(--syntax_atom)
+}
+
+.cm-s-d3-2-figma span.cm-string,.cm-s-d3-2-figma span.cm-string-2 {
+    color: var(--syntax_string)
+}
+
+.cm-s-d3-2-figma span.cm-variable {
+    color: var(--syntax_unknown_variable)
+}
+
+.cm-s-d3-2-figma span.cm-variable-2 {
+    color: var(--syntax_known_variable)
+}
+
+.cm-s-d3-2-figma span.cm-error {
+    background: var(--syntax_error)
+}
+

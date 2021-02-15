@@ -5,7 +5,11 @@ module.exports = {
     './src/**/*.tsx',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mono: [ 'Menlo', 'Consolas', 'monaco', 'monospace' ],
+      }
+    },
   },
   variants: {
     extend: {},

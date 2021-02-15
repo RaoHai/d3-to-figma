@@ -2,15 +2,15 @@
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin') // extract css to files
-const tailwindcss = require('tailwindcss')
-const autoprefixer = require('autoprefixer') // help tailwindcss to work
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // extract css to files
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer'); // help tailwindcss to work
+const HtmlWebpackInlineSourcePlugin = require('./config/InlineChunkHtmlPlugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
   return {
-    mode: isProduction ? 'production' : 'development',
+    mode: 'development',
     
     // This is necessary because Figma's 'eval' works differently than normal eval
     devtool: isProduction ? false : 'inline-source-map',
@@ -18,6 +18,10 @@ module.exports = (env, argv) => {
     entry: {
       ui: './src/index.tsx',
       code: './index.ts',
+    },
+    
+    externals: {
+      codemirror: 'CodeMirror',
     },
 
     module: {
@@ -60,9 +64,10 @@ module.exports = (env, argv) => {
         filename: 'ui.html',
         inlineSource: '.(js)$',
         chunks: ['ui'],
+        inject: 'body'
       }),
       // Inlines chunks with `runtime` in the name
-      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/bundle/]),
+      new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin, [/ui/]),
     ],
   };
 }
