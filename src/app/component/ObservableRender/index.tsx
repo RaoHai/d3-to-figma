@@ -1,21 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { Suspense } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2'
+import { useRecoilValue } from 'recoil';
+import { localChartStateQuery } from '../../state/chartState';
 
 import './index.scss';
 
-export interface ObservableRenderProps {
-    data: {
-        nodes: {
-            id: number;
-            pinned?: boolean;
-            value: string;
-        }[];
-    };
-}
-
-export default function ObservableRender({ data }: ObservableRenderProps) {
-    const nodes = useMemo(() => data?.nodes || [], [data]);
-
+export function ObservableRender() {
+    const { nodes = [] } = useRecoilValue(localChartStateQuery);
     return (
         <>
             {nodes.map(({ value, id }) => {
@@ -36,3 +27,8 @@ export default function ObservableRender({ data }: ObservableRenderProps) {
     );
 }
 
+export default props => (
+    <Suspense fallback={<span> loading... </span>}>
+        <ObservableRender {...props} />
+    </Suspense>
+);
