@@ -18,11 +18,7 @@
 
 .CodeMirror {
     height: auto;
-    @apply font-mono;
-    @apply bg-gray-50;
-    @apply text-sm;
-    @apply px-3;
-    @apply py-2;
+    @apply font-mono bg-gray-50 text-sm px-3 py-2;
 }
 
 .cm-s-d3-2-figma {
