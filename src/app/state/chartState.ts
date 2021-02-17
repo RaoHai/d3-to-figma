@@ -1,5 +1,4 @@
 import { atom, selector } from 'recoil';
-import useSWR from 'swr';
 import { AtomKeysEnum } from './enums';
 
 export interface ChartState {

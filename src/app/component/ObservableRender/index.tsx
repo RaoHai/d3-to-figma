@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2'
 import { useRecoilValue } from 'recoil';
 import { localChartStateQuery } from '../../state/chartState';
+import createSuspenseAndCatch from '../common/SuspenseAndCatch';
 
 import './index.scss';
 
@@ -27,8 +28,4 @@ export function ObservableRender() {
     );
 }
 
-export default props => (
-    <Suspense fallback={<span> loading... </span>}>
-        <ObservableRender {...props} />
-    </Suspense>
-);
+export default createSuspenseAndCatch(ObservableRender);
